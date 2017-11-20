@@ -33,8 +33,8 @@ public class EmpleadosController implements Serializable {
     }   
     
     public List<Empleados> getListaEmpleados(){
-        EmpleadosDao Dao = new EmpleadosDao();
-        this.listaEmpleados = Dao.ListaEmpleados();
-        return this.listaEmpleados;
+        
+        //retorna lista de empleados
+        return EmpleadosDao.ListaEmpleados();
     } 
 }
