@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
@@ -13,8 +8,13 @@ and open the template in the editor.
         <title>Listado de empleados</title>
     </h:head>
     <h:body>
-        <h1>Empleados</h1>
+        <h1>Mantenimiento Empleados</h1>
         <br />
+        
+        <h:form>
+            <p:commandButton value="Agregar Empleado" actionListener="#{empleadosController.limpiarEmpleado()}" oncomplete="PF('dialogoAgregar').show();" update=":formAgregar"/>
+            <p:separator/>
+        </h:form>
             <h:form id="formEmpleados">
                 <p:dataTable id="tablaEmpleados" paginator="true" paginatorPosition="bottom" rows="20" var="empleados" 
                              value="#{empleadosController.listaEmpleados}" emptyMessage="No existen empleados">
@@ -30,12 +30,52 @@ and open the template in the editor.
                     <p:column headerText="CIUDAD">
                         <h:outputText value="#{empleados.ciudad}"/>
                     </p:column>
+                    
                     <p:column headerText="FECHA INGRESO">
                         <h:outputText value="#{empleados.fechaIngreso}">
                             <f:convertDateTime pattern="dd/MM/yyyy" locale="ES" />
                         </h:outputText>
                     </p:column>
+                    
+                    <p:column headerText="ACTIVO">
+                        <h:outputText value="#{empleados.activo.toString()}"/>
+                    </p:column>
+                    
                 </p:dataTable>
             </h:form>
+        
+        <h:form id="formAgregar">
+                    <p:dialog id="dlgAgregar" header="Agregar Empleado" widgetVar="dialogoAgregar" resizable="false" showEffect="fade" hideEffect="explode" modal="true">
+                        <p:panelGrid columns="2" style="margin: 0 auto;">
+                            <p:outputLabel value="Codigo:"/>
+                            <p:inputText value="#{empleadosController.empleado.codigo}"/>
+
+                            <p:outputLabel value="Nombre:"/>
+                            <p:inputText value="#{empleadosController.empleado.nombre}"/>
+
+                            <p:outputLabel value="Apellido:"/>
+                            <p:inputText value="#{empleadosController.empleado.apellido}"/>
+
+                            <p:outputLabel value="Genero:"/>
+                            <p:inputText value="#{empleadosController.empleado.genero}"/>
+
+                            <p:outputLabel value="Ciudad:"/>
+                            <p:inputText value="#{empleadosController.empleado.ciudad}"/>
+                            
+                            <p:outputLabel value="Fecha Ingreso:"/>
+                            <p:calendar value="#{empleadosController.empleado.fechaIngreso}"  locale="es"  disabled="true"/>
+
+                            <p:outputLabel value="Domicilio:"/>
+                            <p:inputText value="#{empleadosController.empleado.domicilio}"/>
+                            
+                            <p:outputLabel value="Activo:"/>
+                            <p:selectBooleanCheckbox value="#{empleadosController.empleado.activo}"/>
+                               
+                        </p:panelGrid>
+                        <p:commandButton  value="Guardar" actionListener="#{empleadosController.agregarEmpleado()}" update=":formEmpleados:tablaEmpleados" oncomplete="PF('dialogoAgregar').hide();"/>
+                        <p:commandButton  value="Cancelar" onclick="PF('dialogoAgregar').hide();"/>
+                    </p:dialog>
+                </h:form>
+            
     </h:body>
 </html>
