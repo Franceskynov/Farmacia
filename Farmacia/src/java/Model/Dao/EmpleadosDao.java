@@ -17,8 +17,7 @@ import org.hibernate.Transaction;
  */
 public class EmpleadosDao {
     
-    // metodo static reduce codigo en empleadosController
-    public static List<Empleados> ListaEmpleados(){
+    public List<Empleados> ListaEmpleados(){
         List<Empleados> lista = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tran = session.beginTransaction();
