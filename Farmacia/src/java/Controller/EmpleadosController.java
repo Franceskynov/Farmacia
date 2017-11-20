@@ -5,21 +5,36 @@
  */
 package Controller;
 
-import javax.inject.Named;
-import javax.faces.view.ViewScoped;
+import Model.Dao.EmpleadosDao;
+import Model.Entities.Empleados;
+import java.io.Serializable;
+import java.util.List;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+//import javax.inject.Named;
+//import javax.faces.view.ViewScoped;
 
 /**
  *
  * @author Josué Mercally
  */
-@Named(value = "empleadosController")
+//@Named(value = "Empleados")
+@ManagedBean
 @ViewScoped
-public class EmpleadosController {
+public class EmpleadosController implements Serializable {
 
-    /**
-     * Creates a new instance of EmpleadosController
-     */
-    public EmpleadosController() {
+    public EmpleadosController(){        
     }
     
+    private List<Empleados> listaEmpleados;
+    
+    public void setListaEmpleados(List<Empleados> listaEmpleados) {
+        this.listaEmpleados = listaEmpleados;
+    }   
+    
+    public List<Empleados> getListaEmpleados(){
+        EmpleadosDao Dao = new EmpleadosDao();
+        this.listaEmpleados = Dao.ListaEmpleados();
+        return this.listaEmpleados;
+    } 
 }
