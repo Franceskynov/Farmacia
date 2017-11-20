@@ -38,7 +38,14 @@
                     </p:column>
                     
                     <p:column headerText="ACTIVO">
-                        <h:outputText value="#{empleados.activo.toString()}"/>
+                        <h:outputText value="Si" rendered="#{empleados.activo}"/>
+                        <h:outputText value="No" rendered="#{not empleados.activo}"/>
+                    </p:column>
+                    
+                    <p:column headerText="MODIFICAR" style="text-align: center">
+                            <p:commandButton icon="ui-icon-pencil" title="Modificar" oncomplete="PF('dialogoModificar').show();" update=":formModificar">
+                                <f:setPropertyActionListener target="#{empleadosController.empleado}" value="#{empleados}"/>
+                            </p:commandButton>
                     </p:column>
                     
                 </p:dataTable>
@@ -74,6 +81,38 @@
                         </p:panelGrid>
                         <p:commandButton  value="Guardar" actionListener="#{empleadosController.agregarEmpleado()}" update=":formEmpleados:tablaEmpleados" oncomplete="PF('dialogoAgregar').hide();"/>
                         <p:commandButton  value="Cancelar" onclick="PF('dialogoAgregar').hide();"/>
+                    </p:dialog>
+                </h:form>
+        
+        <h:form id="formModificar">
+                    <p:dialog id="dlgModificar" header="Modificar Usuario" widgetVar="dialogoModificar" resizable="false" showEffect="fade" hideEffect="explode" modal="true">
+                        <p:panelGrid columns="2" style="margin: 0 auto;">
+                            <p:outputLabel value="Codigo:"/>
+                            <p:inputText value="#{empleadosController.empleado.codigo}"/>
+
+                            <p:outputLabel value="Nombre:"/>
+                            <p:inputText value="#{empleadosController.empleado.nombre}"/>
+
+                            <p:outputLabel value="Apellido:"/>
+                            <p:inputText value="#{empleadosController.empleado.apellido}"/>
+
+                            <p:outputLabel value="Genero:"/>
+                            <p:inputText value="#{empleadosController.empleado.genero}"/>
+
+                            <p:outputLabel value="Ciudad:"/>
+                            <p:inputText value="#{empleadosController.empleado.ciudad}"/>
+                            
+                            <p:outputLabel value="Fecha Ingreso:"/>
+                            <p:calendar value="#{empleadosController.empleado.fechaIngreso}"  locale="es"  disabled="true"/>
+
+                            <p:outputLabel value="Domicilio:"/>
+                            <p:inputText value="#{empleadosController.empleado.domicilio}"/>
+                            
+                            <p:outputLabel value="Activo:"/>
+                            <p:selectBooleanCheckbox value="#{empleadosController.empleado.activo}"/>
+                        </p:panelGrid>
+                        <p:commandButton  value="Guardar" actionListener="#{empleadosController.modificarUsuario()}" update=":formEmpleados:tablaEmpleados" oncomplete="PF('dialogoModificar').hide();"/>
+                        <p:commandButton  value="Cancelar" onclick="PF('dialogoModificar').hide();"/>
                     </p:dialog>
                 </h:form>
             
