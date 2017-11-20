@@ -9,6 +9,6 @@ package Model.Dao;
  *
  * @author Josué Mercally
  */
-public class Clase {
+public class EmpleadosDao {
     
 }
