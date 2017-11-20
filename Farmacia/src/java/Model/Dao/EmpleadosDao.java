@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model.Dao;
 
 import Model.Entities.Empleados;
@@ -11,10 +6,6 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-/**
- *
- * @author Josué Mercally
- */
 public class EmpleadosDao {
     
     public List<Empleados> ListaEmpleados(){
@@ -30,5 +21,56 @@ public class EmpleadosDao {
         }
         session.close();
         return lista;
+    }
+    
+    public void agregar(Empleados empleado) {
+        Session sesion = null;
+        try {
+            sesion = HibernateUtil.getSessionFactory().openSession();
+            sesion.beginTransaction();
+            sesion.save(empleado);
+            sesion.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            sesion.getTransaction().rollback();
+        } finally {
+            if (sesion != null) {
+                sesion.close();
+            }
+        }
+    }
+    
+    public void modificar(Empleados empleado) {
+        Session sesion = null;
+        try {
+            sesion = HibernateUtil.getSessionFactory().openSession();
+            sesion.beginTransaction();
+            sesion.update(empleado);
+            sesion.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            sesion.getTransaction().rollback();
+        } finally {
+            if (sesion != null) {
+                sesion.close();
+            }
+        }
+    }
+    
+    public void eliminar(Empleados empleado) {
+        Session sesion = null;
+        try {
+            sesion = HibernateUtil.getSessionFactory().openSession();
+            sesion.beginTransaction();
+            sesion.delete(empleado);
+            sesion.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            sesion.getTransaction().rollback();
+        } finally {
+            if (sesion != null) {
+                sesion.close();
+            }
+        }
     }
 }
