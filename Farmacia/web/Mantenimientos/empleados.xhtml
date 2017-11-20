@@ -48,6 +48,12 @@
                             </p:commandButton>
                     </p:column>
                     
+                    <p:column headerText="ELIMINAR" style="text-align: center">
+                            <p:commandButton icon="ui-icon-trash" title="Eliminar" oncomplete="PF('dialogoEliminar').show();" update=":formEliminar">
+                                <f:setPropertyActionListener target="#{empleadosController.empleado}" value="#{empleados}" />
+                            </p:commandButton>
+                    </p:column>
+                    
                 </p:dataTable>
             </h:form>
         
@@ -85,7 +91,7 @@
                 </h:form>
         
         <h:form id="formModificar">
-                    <p:dialog id="dlgModificar" header="Modificar Usuario" widgetVar="dialogoModificar" resizable="false" showEffect="fade" hideEffect="explode" modal="true">
+                    <p:dialog id="dlgModificar" header="Modificar Empleado" widgetVar="dialogoModificar" resizable="false" showEffect="fade" hideEffect="explode" modal="true">
                         <p:panelGrid columns="2" style="margin: 0 auto;">
                             <p:outputLabel value="Codigo:"/>
                             <p:inputText value="#{empleadosController.empleado.codigo}"/>
@@ -111,10 +117,19 @@
                             <p:outputLabel value="Activo:"/>
                             <p:selectBooleanCheckbox value="#{empleadosController.empleado.activo}"/>
                         </p:panelGrid>
-                        <p:commandButton  value="Guardar" actionListener="#{empleadosController.modificarUsuario()}" update=":formEmpleados:tablaEmpleados" oncomplete="PF('dialogoModificar').hide();"/>
+                        <p:commandButton  value="Guardar" actionListener="#{empleadosController.modificarEmpleado()}" update=":formEmpleados:tablaEmpleados" oncomplete="PF('dialogoModificar').hide();"/>
                         <p:commandButton  value="Cancelar" onclick="PF('dialogoModificar').hide();"/>
                     </p:dialog>
                 </h:form>
+        
+        <h:form id="formEliminar">
+                    <p:dialog id="dlgEliminar" header="Eliminar Empleado" widgetVar="dialogoEliminar" resizable="false" showEffect="fade" hideEffect="explode" modal="true">
+                        <h:outputText value="Desea eliminar este registro?"/>
+                        <p:commandButton  value="Si" actionListener="#{empleadosController.eliminarEmpleado()}" update=":formEmpleados:tablaEmpleados" oncomplete="PF('dialogoEliminar').hide();"/>
+                        <p:commandButton  value="No" onclick="PF('dialogoEliminar').hide();"/>
+                    </p:dialog>
+        </h:form>
+            
             
     </h:body>
 </html>

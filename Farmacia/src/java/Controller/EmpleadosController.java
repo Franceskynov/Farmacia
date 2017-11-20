@@ -55,13 +55,13 @@ public class EmpleadosController implements Serializable {
         ed.agregar(empleado);
     }
 
-    public void modificarUsuario() {
+    public void modificarEmpleado() {
         EmpleadosDao ud = new EmpleadosDao();
         ud.modificar(empleado);
         limpiarEmpleado();
     }
 
-    public void eliminarUsuario() {
+    public void eliminarEmpleado() {
         EmpleadosDao ud = new EmpleadosDao();
         ud.eliminar(empleado);
         limpiarEmpleado();
