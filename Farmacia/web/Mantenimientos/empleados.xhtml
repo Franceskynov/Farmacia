@@ -16,7 +16,7 @@
             <p:separator/>
         </h:form>
             <h:form id="formEmpleados">
-                <p:dataTable id="tablaEmpleados" paginator="true" paginatorPosition="bottom" rows="20" var="empleados" 
+                <p:dataTable id="tablaEmpleados" paginator="true" paginatorPosition="bottom" rows="10" var="empleados" 
                              value="#{empleadosController.listaEmpleados}" emptyMessage="No existen empleados">
                     <p:column headerText="CODIGO">
                         <h:outputText value="#{empleados.codigo}"/>
