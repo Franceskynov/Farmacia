@@ -1,5 +1,5 @@
 package Model.Entities;
-// Generated 11-25-2017 09:52:42 AM by Hibernate Tools 4.3.1
+// Generated 11-25-2017 04:42:44 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -18,6 +18,8 @@ public class Empleados  implements java.io.Serializable {
      private String nombre;
      private String apellido;
      private Character genero;
+     private String usuario;
+     private String clave;
      private String ciudad;
      private Date fechaIngreso;
      private String domicilio;
@@ -28,12 +30,14 @@ public class Empleados  implements java.io.Serializable {
     public Empleados() {
     }
 
-    public Empleados(Empleados empleados, String codigo, String nombre, String apellido, Character genero, String ciudad, Date fechaIngreso, String domicilio, Boolean activo, Set<Ventas> ventases, Set<Empleados> empleadoses) {
+    public Empleados(Empleados empleados, String codigo, String nombre, String apellido, Character genero, String usuario, String clave, String ciudad, Date fechaIngreso, String domicilio, Boolean activo, Set<Ventas> ventases, Set<Empleados> empleadoses) {
        this.empleados = empleados;
        this.codigo = codigo;
        this.nombre = nombre;
        this.apellido = apellido;
        this.genero = genero;
+       this.usuario = usuario;
+       this.clave = clave;
        this.ciudad = ciudad;
        this.fechaIngreso = fechaIngreso;
        this.domicilio = domicilio;
@@ -83,6 +87,20 @@ public class Empleados  implements java.io.Serializable {
     
     public void setGenero(Character genero) {
         this.genero = genero;
+    }
+    public String getUsuario() {
+        return this.usuario;
+    }
+    
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+    public String getClave() {
+        return this.clave;
+    }
+    
+    public void setClave(String clave) {
+        this.clave = clave;
     }
     public String getCiudad() {
         return this.ciudad;

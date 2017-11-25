@@ -1,12 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controller;
 
 //import javax.inject.Named;
-//import javax.enterprise.context.Dependent;
+
 import Model.Dao.ClientesDao;
 import Model.Entities.Clientes;
 import java.io.Serializable;
@@ -15,16 +11,20 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+//import javax.faces.view.ViewScoped;
+
 /**
  *
  * @author Miguel
  */
 //@Named(value = "clientesController")
-//@Dependent
 @ManagedBean
 @ViewScoped
 public class ClientesController implements Serializable {
 
+    /**
+     * Creates a new instance of ClienteController
+     */
     public ClientesController() {
     }
     
