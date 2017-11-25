@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-24-2017 11:10:50 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Entities.Productos" table="productos" catalog="mtechwor_prograiv" optimistic-lock="version">
+        <id name="productoId" type="java.lang.Integer">
+            <column name="productoId" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="45" not-null="true" />
+        </property>
+        <property name="precio" type="big_decimal">
+            <column name="precio" precision="8" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" />
+        </property>
+        <property name="existencias" type="int">
+            <column name="existencias" not-null="true" />
+        </property>
+        <set name="proveedoreses" table="productosProveedores" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="productoId" not-null="true" />
+            </key>
+            <many-to-many entity-name="Model.Entities.Proveedores">
+                <column name="proveedorId" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="detalleventases" table="detalleventas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="productoId" not-null="true">
+                    <comment>Almacena el producto que se vendio.</comment>
+                </column>
+            </key>
+            <one-to-many class="Model.Entities.Detalleventas" />
+        </set>
+    </class>
+</hibernate-mapping>

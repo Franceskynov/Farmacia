@@ -1,5 +1,5 @@
 package Model.Entities;
-// Generated Nov 19, 2017 6:41:49 PM by Hibernate Tools 4.3.1
+// Generated 11-24-2017 11:10:49 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -22,12 +22,13 @@ public class Empleados  implements java.io.Serializable {
      private Date fechaIngreso;
      private String domicilio;
      private Boolean activo;
+     private Set<Ventas> ventases = new HashSet<Ventas>(0);
      private Set<Empleados> empleadoses = new HashSet<Empleados>(0);
 
     public Empleados() {
     }
 
-    public Empleados(Empleados empleados, String codigo, String nombre, String apellido, Character genero, String ciudad, Date fechaIngreso, String domicilio, Boolean activo, Set<Empleados> empleadoses) {
+    public Empleados(Empleados empleados, String codigo, String nombre, String apellido, Character genero, String ciudad, Date fechaIngreso, String domicilio, Boolean activo, Set<Ventas> ventases, Set<Empleados> empleadoses) {
        this.empleados = empleados;
        this.codigo = codigo;
        this.nombre = nombre;
@@ -37,6 +38,7 @@ public class Empleados  implements java.io.Serializable {
        this.fechaIngreso = fechaIngreso;
        this.domicilio = domicilio;
        this.activo = activo;
+       this.ventases = ventases;
        this.empleadoses = empleadoses;
     }
    
@@ -109,6 +111,13 @@ public class Empleados  implements java.io.Serializable {
     
     public void setActivo(Boolean activo) {
         this.activo = activo;
+    }
+    public Set<Ventas> getVentases() {
+        return this.ventases;
+    }
+    
+    public void setVentases(Set<Ventas> ventases) {
+        this.ventases = ventases;
     }
     public Set<Empleados> getEmpleadoses() {
         return this.empleadoses;
