@@ -16,10 +16,11 @@ public class EmpleadosDao {
         try{
             lista = session.createQuery(hql).list();
             tran.commit();
+            session.close();
         }catch(Exception ex){
             tran.rollback();
         }
-        session.close();
+        
         return lista;
     }
     
