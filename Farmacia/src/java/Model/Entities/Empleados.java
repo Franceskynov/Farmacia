@@ -1,5 +1,5 @@
 package Model.Entities;
-// Generated 11-24-2017 11:10:49 PM by Hibernate Tools 4.3.1
+// Generated 11-25-2017 09:52:42 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;

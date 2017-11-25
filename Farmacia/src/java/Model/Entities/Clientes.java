@@ -1,7 +1,8 @@
 package Model.Entities;
-// Generated 11-24-2017 11:10:49 PM by Hibernate Tools 4.3.1
+// Generated 11-25-2017 09:52:42 AM by Hibernate Tools 4.3.1
 
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,6 +17,7 @@ public class Clientes  implements java.io.Serializable {
      private String apellido;
      private Character genero;
      private String telefono;
+     private Date fechaIngreso;
      private String correoElectronico;
      private String ciudad;
      private String domicilio;
@@ -24,11 +26,12 @@ public class Clientes  implements java.io.Serializable {
     public Clientes() {
     }
 
-    public Clientes(String nombre, String apellido, Character genero, String telefono, String correoElectronico, String ciudad, String domicilio, Set<Ventas> ventases) {
+    public Clientes(String nombre, String apellido, Character genero, String telefono, Date fechaIngreso, String correoElectronico, String ciudad, String domicilio, Set<Ventas> ventases) {
        this.nombre = nombre;
        this.apellido = apellido;
        this.genero = genero;
        this.telefono = telefono;
+       this.fechaIngreso = fechaIngreso;
        this.correoElectronico = correoElectronico;
        this.ciudad = ciudad;
        this.domicilio = domicilio;
@@ -69,6 +72,13 @@ public class Clientes  implements java.io.Serializable {
     
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+    public Date getFechaIngreso() {
+        return this.fechaIngreso;
+    }
+    
+    public void setFechaIngreso(Date fechaIngreso) {
+        this.fechaIngreso = fechaIngreso;
     }
     public String getCorreoElectronico() {
         return this.correoElectronico;
