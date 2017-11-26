@@ -3,6 +3,7 @@ package Model.Dao;
 import Model.Entities.Empleados;
 import Model.Util.HibernateUtil;
 import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -74,4 +75,15 @@ public class EmpleadosDao {
             }
         }
     }
+    
+    
+    public Empleados login(Empleados user) {
+        Session sesion = HibernateUtil.getSessionFactory().openSession();
+        String hql = "SELECT u FROM Empleados u WHERE u.usuario = :usuario AND u.clave = :clave";
+        Query q = sesion.createQuery(hql);
+        q.setParameter("usuario", user.getUsuario());
+        q.setParameter("clave", user.getClave());
+        return (Empleados) q.uniqueResult();
+    }
+    
 }
