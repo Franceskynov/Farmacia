@@ -4,35 +4,42 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <h:head>
+    <head>
         <title>Farmacia Esperanza</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-          
-    </h:head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900"/>
+        <link rel="stylesheet" href="./resources/css/login.css"/>
+    </head>
     <h:body>
-                
-            <h:panelGroup layout="block" class="login">
-            <h:form id="formLogin"> 
-                <p:growl id="mensaje"  showDetail="true" life="3000" />
+        <div class="pen-title">
+            <h1>Farmacia</h1><span></span>
+        </div>
 
-                <p:panel header="Entrar" widgetVar="dlg" >
-                    <h:panelGrid columns="2" cellpadding="5">
-                        <h:outputLabel for="usuario" value="Usuario:" />
-                        <p:inputText id="usuario" value="#{loginController.usuario.usuario }" placeholder="Usuario" required="true"
+        <div class="container">
+            <div class="card"></div>
+            <div class="card">
+                <h1 class="title">Login</h1>
+                <h:form id="formLogin">
+                    <p:growl id="mensaje"  showDetail="true" life="3000" />
+                    
+                    <div class="input-container">
+                        
+                        <p:inputText id="usuario" value="#{loginController.usuario.usuario }" placeholder="Usuario" required="true" 
                                      label="username" requiredMessage="Usuario requerido" />
-
-                        <h:outputLabel for="password" value="Password:" />
+                        
+                        <div class="bar"></div>
+                    </div>
+                    <div class="input-container">
                         <p:password id="password" value="#{loginController.usuario.clave }" placeholder="Password" required="true"
                                     label="password" requiredMessage="Clave requerida" />
-
-                        <f:facet name="footer">
-                            <p:commandButton icon="ui-icon-person" value="Ingresar" update="mensaje" action="#{loginController.login() }"/>
-                        </f:facet>  
-                    </h:panelGrid>
-                </p:panel>
-            </h:form>
-        </h:panelGroup>
-        
+                        <div class="bar"></div>
+                    </div>
+                    <div class="button-container">
+                        <p:commandButton icon="ui-icon-person" value="Ingresar" update="mensaje" action="#{loginController.login() }"/>
+                    </div>
+                </h:form>
+            </div>
+        </div>
     </h:body>
 </html>
-
