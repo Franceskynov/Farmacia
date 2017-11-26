@@ -1,7 +1,8 @@
 package Model.Entities;
-// Generated 11-25-2017 04:42:44 PM by Hibernate Tools 4.3.1
+// Generated 11-26-2017 04:13:24 PM by Hibernate Tools 4.3.1
 
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,16 +17,18 @@ public class Proveedores  implements java.io.Serializable {
      private String nombreContacto;
      private String telefonoContacto;
      private String ciudad;
+     private Date fechaCreacion;
      private Set<Productos> productoses = new HashSet<Productos>(0);
 
     public Proveedores() {
     }
 
-    public Proveedores(String nombreComercial, String nombreContacto, String telefonoContacto, String ciudad, Set<Productos> productoses) {
+    public Proveedores(String nombreComercial, String nombreContacto, String telefonoContacto, String ciudad, Date fechaCreacion, Set<Productos> productoses) {
        this.nombreComercial = nombreComercial;
        this.nombreContacto = nombreContacto;
        this.telefonoContacto = telefonoContacto;
        this.ciudad = ciudad;
+       this.fechaCreacion = fechaCreacion;
        this.productoses = productoses;
     }
    
@@ -63,6 +66,13 @@ public class Proveedores  implements java.io.Serializable {
     
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
+    }
+    public Date getFechaCreacion() {
+        return this.fechaCreacion;
+    }
+    
+    public void setFechaCreacion(Date fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
     }
     public Set<Productos> getProductoses() {
         return this.productoses;

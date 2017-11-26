@@ -1,8 +1,9 @@
 package Model.Entities;
-// Generated 11-25-2017 04:42:44 PM by Hibernate Tools 4.3.1
+// Generated 11-26-2017 04:13:24 PM by Hibernate Tools 4.3.1
 
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,6 +16,7 @@ public class Productos  implements java.io.Serializable {
      private Integer productoId;
      private String nombre;
      private BigDecimal precio;
+     private Date fechaIngreso;
      private String descripcion;
      private int existencias;
      private Set<Proveedores> proveedoreses = new HashSet<Proveedores>(0);
@@ -29,9 +31,10 @@ public class Productos  implements java.io.Serializable {
         this.precio = precio;
         this.existencias = existencias;
     }
-    public Productos(String nombre, BigDecimal precio, String descripcion, int existencias, Set<Proveedores> proveedoreses, Set<Detalleventas> detalleventases) {
+    public Productos(String nombre, BigDecimal precio, Date fechaIngreso, String descripcion, int existencias, Set<Proveedores> proveedoreses, Set<Detalleventas> detalleventases) {
        this.nombre = nombre;
        this.precio = precio;
+       this.fechaIngreso = fechaIngreso;
        this.descripcion = descripcion;
        this.existencias = existencias;
        this.proveedoreses = proveedoreses;
@@ -58,6 +61,13 @@ public class Productos  implements java.io.Serializable {
     
     public void setPrecio(BigDecimal precio) {
         this.precio = precio;
+    }
+    public Date getFechaIngreso() {
+        return this.fechaIngreso;
+    }
+    
+    public void setFechaIngreso(Date fechaIngreso) {
+        this.fechaIngreso = fechaIngreso;
     }
     public String getDescripcion() {
         return this.descripcion;
