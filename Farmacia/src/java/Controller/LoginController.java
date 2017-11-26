@@ -40,7 +40,7 @@ public class LoginController implements Serializable {
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", usuario);
             mensaje = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome  ", this.usuario.getNombre());
             FacesContext.getCurrentInstance().addMessage(null, mensaje);
-            return "/Mantenimientos/empleados.xhtml";
+            return "/views/admin/empleados.xhtml";
         } else {
             mensaje = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de Acceso", "Usuario o Clave incorrecta");
             FacesContext.getCurrentInstance().addMessage(null, mensaje);
@@ -53,7 +53,7 @@ public class LoginController implements Serializable {
     public String cerrarSession() {
         HttpSession httpSession = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
         httpSession.invalidate();
-        return "/login";
+        return "login";
     }
     
 }
