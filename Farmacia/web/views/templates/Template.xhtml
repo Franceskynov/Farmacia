@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
 
     <h:head>
         <title>Farmacia</title>
@@ -13,7 +14,7 @@
         <h:outputStylesheet name="/assets/vendor/font-awesome/css/font-awesome.min.css"/>
         <h:outputStylesheet name="/assets/vendor/linearicons/style.css"/>
         <h:outputStylesheet name="/assets/vendor/chartist/css/chartist-custom.css"/>
-        
+
         <h:outputStylesheet name="/assets/css/main.css"/>
         <h:outputStylesheet name="/assets/css/demo.css"/>
         <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png"/>
@@ -63,6 +64,11 @@
                                     <li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
                                     <li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
                                     <li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+                                    <h:form>
+                                        <p:menubar>
+                                            <p:menuitem value="Salir" icon="ui-icon-circle-minus" action="#{loginControl.cerrarSession()}"  />
+                                        </p:menubar>
+                                    </h:form>
                                 </ul>
                             </li>
 
@@ -75,14 +81,13 @@
                 <div class="sidebar-scroll">
                     <nav>
                         <ul class="nav">
-                            <li><a href="index.html" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>	
-                            <li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Clientes</span></a></li>
-                            <li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Productos</span></a></li>
-                            <li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Empleados</span></a></li>
-                            <li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Ventas</span></a></li>
-                            <li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Inventario</span></a></li>
-
-
+                            <li><a href="/Farmacia/faces/views/admin/dashboard.xhtml" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>	
+                            <li><a href="/Farmacia/faces/views/admin/clientes.xhtml" class=""><i class="lnr lnr-cog"></i> <span>Clientes</span></a></li>
+                            <li><a href="/Farmacia/faces/views/admin/productos.xhtml" class=""><i class="lnr lnr-cog"></i> <span>Productos</span></a></li>
+                            <li><a href="/Farmacia/faces/views/admin/proveedores.xhtml" class=""><i class="lnr lnr-cog"></i> <span>Proveedores</span></a></li>
+                            <li><a href="/Farmacia/faces/views/admin/empleados.xhtml" class=""><i class="lnr lnr-cog"></i> <span>Empleados</span></a></li>
+                            <li><a href="/Farmacia/faces/views/admin/detalle.xhtml" class=""><i class="lnr lnr-cog"></i> <span>Ventas</span></a></li>
+                            <li><a href="/Farmacia/faces/views/admin/inventario.xhtml" class=""><i class="lnr lnr-cog"></i> <span>Inventario</span></a></li> 
                         </ul>
                     </nav>
                 </div>
@@ -98,9 +103,9 @@
                 </div>
 
             </div>
-</div>
+        </div>
     </h:body>
-    
+
     <h:outputScript name="/assets/vendor/bootstrap/js/bootstrap.min.js"/>
     <h:outputScript name="/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"/>
     <h:outputScript name="/assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"/>
