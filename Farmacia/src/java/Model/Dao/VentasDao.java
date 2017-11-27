@@ -25,20 +25,18 @@ public class VentasDao {
         }catch(Exception ex){
             tran.rollback();
         }
-        
+
         return lista;
     }
     
     public void agregar(Ventas venta) {
-        Session sesion = null;
+        Session sesion = HibernateUtil.getSessionFactory().openSession();
+        Transaction tran = sesion.beginTransaction();
         try {
-            sesion = HibernateUtil.getSessionFactory().openSession();
-            sesion.beginTransaction();
             sesion.save(venta);
-            sesion.getTransaction().commit();
+            tran.commit();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
-            sesion.getTransaction().rollback();
+            tran.rollback();
         } finally {
             if (sesion != null) {
                 sesion.close();
@@ -47,15 +45,13 @@ public class VentasDao {
     }
     
     public void modificar(Ventas venta) {
-        Session sesion = null;
-        try {
-            sesion = HibernateUtil.getSessionFactory().openSession();
-            sesion.beginTransaction();
+        Session sesion = HibernateUtil.getSessionFactory().openSession();
+        Transaction tran = sesion.beginTransaction();
+        try {    
             sesion.update(venta);
-            sesion.getTransaction().commit();
+            tran.commit();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
-            sesion.getTransaction().rollback();
+            tran.rollback();
         } finally {
             if (sesion != null) {
                 sesion.close();
@@ -64,20 +60,17 @@ public class VentasDao {
     }
     
     public void eliminar(Ventas venta) {
-        Session sesion = null;
+        Session sesion = HibernateUtil.getSessionFactory().openSession();
+        Transaction tran = sesion.beginTransaction();
         try {
-            sesion = HibernateUtil.getSessionFactory().openSession();
-            sesion.beginTransaction();
             sesion.delete(venta);
-            sesion.getTransaction().commit();
+            tran.commit();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
-            sesion.getTransaction().rollback();
+            tran.rollback();
         } finally {
             if (sesion != null) {
                 sesion.close();
             }
         }
     }
-    
 }

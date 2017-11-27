@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:p="http://primefaces.org/ui"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<body>
+    <ui:composition template="./../templates/Template.xhtml">
+
+        <ui:define name="content">
+                <div class="panel panel-headline">
+                    <div class="panel-heading">
+                            <h3 class="panel-title">Ventas</h3>
+                    </div>
+                    <!--
+        <h:form>
+            <p:commandButton value="Agregar Venta" actionListener="#{ventasController.limpiarVenta()}" oncomplete="PF('dialogoAgregar').show();" update=":formAgregar"/>
+            <p:separator/>
+        </h:form> -->
+            <h:form id="formVentas">
+                <p:dataTable id="tablaVentas" paginator="true" paginatorPosition="bottom" rows="10" var="ventas" 
+                             value="#{ventasController.listaVentas}" emptyMessage="No existen ventas en el periodo actual">
+                    <p:column headerText="CODIGO">
+                        <h:outputText value="#{ventas.codigo}"/>
+                    </p:column>
+                    <p:column headerText="CLIENTE">
+                        <h:outputText value="#{ventas.clientes.nombre} #{ventas.clientes.apellido}"/>
+                    </p:column>
+                    <p:column headerText="TOTAL VENTA">
+                        <h:outputText value="$ #{ventas.totalVenta}"/>
+                    </p:column>
+                    <p:column headerText="FECHA">
+                        <h:outputText value="#{ventas.fechaVenta}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" locale="ES" />
+                        </h:outputText>
+                    </p:column>     
+                    <!--
+                    <p:column headerText="MODIFICAR" style="text-align: center">
+                            <p:commandButton icon="ui-icon-pencil" title="Modificar" oncomplete="PF('dialogoModificar').show();" update=":formModificar">
+                                <f:setPropertyActionListener target="#{empleadosController.venta}" value="#{ventas}"/>
+                            </p:commandButton>
+                    </p:column>
+                    
+                    <p:column headerText="ELIMINAR" style="text-align: center">
+                            <p:commandButton icon="ui-icon-trash" title="Eliminar" oncomplete="PF('dialogoEliminar').show();" update=":formEliminar">
+                                <f:setPropertyActionListener target="#{empleadosController.venta}" value="#{ventas}" />
+                            </p:commandButton>
+                    </p:column>
+                    -->
+                </p:dataTable>
+            </h:form>
+            </div>
+        </ui:define>
+    </ui:composition>
+
+</body>
+</html>
