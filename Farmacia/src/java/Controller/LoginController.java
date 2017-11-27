@@ -40,7 +40,7 @@ public class LoginController implements Serializable {
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", usuario);
             mensaje = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome  ", this.usuario.getNombre());
             FacesContext.getCurrentInstance().addMessage(null, mensaje);
-            return "/views/admin/empleados.xhtml";
+            return "/views/admin/dashboard.xhtml";
         } else {
             mensaje = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error de Acceso", "Usuario o Clave incorrecta");
             FacesContext.getCurrentInstance().addMessage(null, mensaje);
