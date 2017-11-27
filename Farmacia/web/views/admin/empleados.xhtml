@@ -14,13 +14,15 @@
 
             
             <ui:define name="content">
+                
                 <div class="panel panel-headline">
 	<div class="panel-heading">
 	         <h2 class="panel-title">Mantenimiento de Empleados</h2>
 	</div>
                 
                <h:form>
-            <p:commandButton value="Agregar Empleado" actionListener="#{empleadosController.limpiarEmpleado()}" oncomplete="PF('dialogoAgregar').show();" update=":formAgregar"/>
+            <p:commandButton value="Agregar Empleado" actionListener="#{empleadosController.limpiarEmpleado()}" 
+                             oncomplete="PF('dialogoAgregar').show();" update=":formAgregar"/>
             <p:separator/>
         </h:form>
             <h:form id="formEmpleados">
