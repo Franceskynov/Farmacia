@@ -1,7 +1,4 @@
-
 package Controller;
-
-//import javax.inject.Named;
 
 import Model.Dao.ClientesDao;
 import Model.Entities.Clientes;
@@ -11,7 +8,6 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-//import javax.faces.view.ViewScoped;
 
 /**
  *
@@ -21,10 +17,7 @@ import javax.faces.bean.ViewScoped;
 @ManagedBean
 @ViewScoped
 public class ClientesController implements Serializable {
-
-    /**
-     * Creates a new instance of ClienteController
-     */
+    
     public ClientesController() {
     }
     
