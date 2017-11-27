@@ -274,7 +274,6 @@ body {
   display: inline-block;
   background: 0;
   width: 220px;
-  border: 2px solid #e3e3e3;
   padding: 10px 0;
   font-size: 24px;
   font-weight: 600;
@@ -284,12 +283,12 @@ body {
   -webkit-transition: .3s ease;
   transition: .3s ease;
   background-color: #FFECED;
-  border: 2px solid #FE48AA;
+  border: 2px solid #00C853;
 }
 .card .button-container button span {
   position: relative;
   z-index: 1;
-  color: #FE48AA;
+  color: #00C853;
   -webkit-transition: .3s ease;
   transition: .3s ease;
 }
