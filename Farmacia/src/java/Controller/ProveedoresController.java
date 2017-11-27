@@ -25,6 +25,12 @@ public class ProveedoresController implements Serializable{
     
     private List<Proveedores> listaProveedores;
     private Proveedores proveedor;
+    private String active;
+    
+    public String getActive() {
+        active = "active";
+        return active;
+    }
     
     public void setListaProveedores(List<Proveedores> listaProveedores){
         this.listaProveedores = listaProveedores;
