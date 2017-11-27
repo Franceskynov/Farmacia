@@ -7,14 +7,72 @@
     <head>
         <title>Farmacia Esperanza</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <script  src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/Farmacia/resources/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900"/>
         <link rel="stylesheet" href="/Farmacia/resources/css/login.css"/>
+        <style>
+            ul {
+                list-style: none;
+                padding: 0;
+            }
+            .alert .glyphicon{
+                display:table-cell;
+            }
+            .alert div,
+            .alert span{
+                padding-left: 5px;
+                display:table-cell;
+            }
+            #container {
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+
+
+
+
+            .alert {
+                padding: 8px 35px 8px 14px;
+                margin-bottom: 18px;
+                color: #c09853;
+                text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+                background-color: #fcf8e3;
+                border: 1px solid #fbeed5;
+                -webkit-border-radius: 4px;
+                -moz-border-radius: 4px;
+                border-radius: 4px;
+            }
+
+            .alert-heading {
+                color: inherit;
+            }
+
+            .alert .close {
+                position: relative;
+                top: -2px;
+                right: -21px;
+                line-height: 18px;
+            }
+            .alert-danger,
+            .alert-error{
+                color: #b94a48;
+                background-color: #f2dede;
+                border-color: #eed3d7;
+            }
+        </style>
     </head>
     <h:body>
         <div class="pen-title">
             <h1>Farmacia Esperanza</h1><span></span>
             <h2>La salud es lo primero.</h2>
+        </div>
+        <div class="container">
+            <h:messages id="messages" showSummary="false" showDetail="true"/>
         </div>
 
         <div class="container">
@@ -23,12 +81,12 @@
                 <h1 class="title">Login</h1>
                 <h:form id="formLogin">
                     <p:growl id="mensaje"  showDetail="true" life="3000" />
-                    
+
                     <div class="input-container">
-                        
+
                         <p:inputText id="usuario" value="#{loginController.usuario.usuario }" placeholder="Usuario" required="true" 
                                      label="username" requiredMessage="Usuario requerido" />
-                        
+
                         <div class="bar"></div>
                     </div>
                     <div class="input-container">
