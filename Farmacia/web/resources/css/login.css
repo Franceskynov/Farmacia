@@ -283,11 +283,13 @@ body {
   overflow: hidden;
   -webkit-transition: .3s ease;
   transition: .3s ease;
+  background-color: #FFECED;
+  border: 2px solid #FE48AA;
 }
 .card .button-container button span {
   position: relative;
   z-index: 1;
-  color: #ddd;
+  color: #FE48AA;
   -webkit-transition: .3s ease;
   transition: .3s ease;
 }
