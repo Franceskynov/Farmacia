@@ -24,19 +24,13 @@ import javax.faces.bean.ViewScoped;
 @ViewScoped
 public class VentasController {
 
-    /**
-     * @return the active
-     */
+    private List<Ventas> listaVentas;
+    private Ventas venta;
+    private String active;
+    
     public String getActive() {
         active = "active";
         return active;
-    }
-
-    /**
-     * @param active the active to set
-     */
-    public void setActive(String active) {
-        this.active = active;
     }
 
     /**
@@ -74,10 +68,6 @@ public class VentasController {
      */
     public VentasController() {
     }
-    
-    private List<Ventas> listaVentas;
-    private Ventas venta;
-    private String active;
     
     public void limpiarVenta() {
         venta = new Ventas();
