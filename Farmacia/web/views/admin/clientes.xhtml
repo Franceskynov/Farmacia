@@ -25,20 +25,25 @@
                              value="#{clientesController.listaClientes}" emptyMessage="No existen clientes">
 
                     <p:column headerText="NOMBRE COMPLETO">
-                        <h:outputText value="#{clientes.nombre} #{clientes.apellido}"/>
+                        <h:outputText value="#{clientes.nombre}  #{clientes.apellido}"/>
                     </p:column>
+                    
                     <p:column headerText="GENERO">
                         <h:outputText value="#{clientes.genero}"/>
                     </p:column>
+                    
                     <p:column headerText="TELEFONO">
                         <h:outputText value="#{clientes.telefono}"/>
                     </p:column>
+                    
                     <p:column headerText="CIUDAD">
                         <h:outputText value="#{clientes.ciudad}"/>
                     </p:column>
+                    
                     <p:column headerText="EMAIL">
                         <h:outputText value="#{clientes.correoElectronico}"/>
                     </p:column>
+                    
                     <p:column headerText="FECHA INGRESO">
                         <h:outputText value="#{clientes.fechaIngreso}">
                             <f:convertDateTime pattern="dd/MM/yyyy" locale="ES" />
@@ -129,6 +134,7 @@
                         </p:panelGrid>
                         <p:commandButton  value="Guardar" actionListener="#{clientesController.modificarCliente()}" 
                                           update=":formClientes:tablaClientes" oncomplete="PF('dialogoModificar').hide();"/>
+                        
                         <p:commandButton  value="Cancelar" onclick="PF('dialogoModificar').hide();"/>
                     </p:dialog>
                 </h:form>
@@ -136,7 +142,9 @@
         <h:form id="formEliminar">
                     <p:dialog id="dlgEliminar" header="Eliminar Cliente" widgetVar="dialogoEliminar" resizable="false"
                               showEffect="fade" hideEffect="explode" modal="true">
+                        
                         <h:outputText value="Desea eliminar este registro?"/>
+                        
                         <p:commandButton  value="Si" actionListener="#{clientesController.eliminarCliente()}" 
                                           update=":formClientes:tablaClientes" oncomplete="PF('dialogoEliminar').hide();"/>
                         <p:commandButton  value="No" onclick="PF('dialogoEliminar').hide();"/>

@@ -8,12 +8,10 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-
 /**
  *
  * @author Miguel
  */
-//@Named(value = "clientesController")
 @ManagedBean
 @ViewScoped
 public class ClientesController implements Serializable {
