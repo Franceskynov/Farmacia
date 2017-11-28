@@ -9,6 +9,23 @@ import org.hibernate.Transaction;
 
 public class EmpleadosDao {
     
+    /** Obtiene un empleado según su Id */
+    public Empleados ObtenerEmpleado(int EmpleadoId){
+        Empleados oEmpleado = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tran = session.beginTransaction();
+        String hql = "FROM Empleados WHERE empleadoId = " + EmpleadoId;
+        try{
+            oEmpleado = (Empleados) session.createQuery(hql).list().get(0);
+            tran.commit();
+            session.close();
+        }catch(Exception ex){
+            tran.rollback();
+        }
+        
+        return oEmpleado;
+    }
+    
     public List<Empleados> ListaEmpleados(){
         List<Empleados> lista = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
