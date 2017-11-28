@@ -23,6 +23,14 @@ public class ProveedoresController implements Serializable{
         active = "active";
         return active;
     }
+
+    public Proveedores getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(Proveedores proveedor) {
+        this.proveedor = proveedor;
+    }
     
     public void setListaProveedores(List<Proveedores> listaProveedores){
         this.listaProveedores = listaProveedores;
@@ -32,11 +40,6 @@ public class ProveedoresController implements Serializable{
         ProveedoresDao Dao = new ProveedoresDao();
         this.listaProveedores = Dao.ListaProveedores();
         return this.listaProveedores;
-    }
-    
-    public Proveedores getProveedor()
-    {
-        return proveedor;
     }
     
     public void limpiarProveedor(){

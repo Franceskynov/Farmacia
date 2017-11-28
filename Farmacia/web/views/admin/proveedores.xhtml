@@ -60,6 +60,8 @@
                     
                 </p:dataTable>
             </h:form>
+                    
+                    
         <h:form id="formAgregar">
                     <p:dialog id="dlgAgregar" header="Agregar Proveedor" widgetVar="dialogoAgregar" resizable="false"
                               showEffect="fade" hideEffect="explode" modal="true">
@@ -92,7 +94,8 @@
                     <p:dialog id="dlgModificar" header="Modificar Proveedor" widgetVar="dialogoModificar" resizable="false"
                               showEffect="fade" hideEffect="explode" modal="true">
                             
-                        <p:outputLabel value="Nombre comercial:"/>
+                        <p:panelGrid columns="2" style="margin: 0 auto;">
+                            <p:outputLabel value="Nombre comercial:"/>
                             <p:inputText value="#{proveedoresController.proveedor.nombreComercial}"/>
 
                             <p:outputLabel value="Nombre contacto:"/>
@@ -107,10 +110,13 @@
                             <p:outputLabel value="Fecha de creacion:"/>
                             <p:calendar value="#{proveedoresController.proveedor.fechaCreacion}"  locale="es"  disabled="true"/>
                             
+                       </p:panelGrid>
+                        
                             <p:commandButton  value="Guardar" actionListener="#{proveedoresController.modificarProveedor()}" 
                                           update=":formProveedores:tablaProveedores" oncomplete="PF('dialogoModificar').hide();"/>
                         
                         <p:commandButton  value="Cancelar" onclick="PF('dialogoModificar').hide();"/>
+                        
                     </p:dialog>
                 </h:form>   
                     
