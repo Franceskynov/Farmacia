@@ -38,6 +38,7 @@ public class ProveedoresController implements Serializable{
     
     public List<Proveedores> getListaProveedores(){
         ProveedoresDao Dao = new ProveedoresDao();
+        this.listaProveedores = Dao.ListaProveedores();
         return this.listaProveedores;
     }
     
