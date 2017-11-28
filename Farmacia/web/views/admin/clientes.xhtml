@@ -77,7 +77,11 @@
                             <p:inputText value="#{clientesController.cliente.apellido}"/>
 
                             <p:outputLabel value="Genero:"/>
-                            <p:inputText value="#{clientesController.cliente.genero}"/>
+                            <h:selectOneRadio value="#{clientesController.cliente.genero}" validatorMessage="Gender is required">
+                                <f:selectItem itemValue="M" itemLabel="Masculino" />
+                                <f:selectItem itemValue="F" itemLabel="Femenino" />
+                                <f:validateRequired/>
+                            </h:selectOneRadio>
 
                             <p:outputLabel value="Telefono:"/>
                             <p:inputText value="#{clientesController.cliente.telefono}"/>
@@ -112,9 +116,13 @@
 
                             <p:outputLabel value="Apellido:"/>
                             <p:inputText value="#{clientesController.cliente.apellido}"/>
-
+                            
                             <p:outputLabel value="Genero:"/>
-                            <p:inputText value="#{clientesController.cliente.genero}"/>
+                            <h:selectOneRadio value="#{clientesController.cliente.genero}" validatorMessage="Gender is required">
+                                <f:selectItem itemValue="M" itemLabel="Masculino" />
+                                <f:selectItem itemValue="F" itemLabel="Femenino" />
+                                <f:validateRequired/>
+                            </h:selectOneRadio>
 
                             <p:outputLabel value="Telefono:"/>
                             <p:inputText value="#{clientesController.cliente.telefono}"/>
