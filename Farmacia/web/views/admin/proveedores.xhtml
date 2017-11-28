@@ -22,9 +22,7 @@
 <h:form id="formProveedores">
                 <p:dataTable id="tablaProveedores" paginator="true" paginatorPosition="bottom" rows="10" var="empleados" 
                              value="#{proveedoresController.listaProveedores}" emptyMessage="No existen proveedores">
-                    <p:column headerText="CODIGO">
-                        <h:outputText value="#{proveedores.proveedorID}"/>
-                    </p:column>
+                    
                     <p:column headerText="NOMBRE COMERCIAL">
                         <h:outputText value="#{proveedores.nombreComercial}"/>
                     </p:column>
@@ -34,7 +32,6 @@
                     <p:column headerText="TELEFONO DEL CONTACTO">
                         <h:outputText value="#{proveedores.telefonoContacto}"/>
                     </p:column>
-                    
                     <p:column headerText="CIUDAD">
                         <h:outputText value="#{proveedores.ciudad}">
                             <h:outputText value="#{proveedores.ciudad}"/>
@@ -43,7 +40,8 @@
                     
                     <p:column headerText="FECHA DE CREACION">
                         <h:outputText value="#{proveedores.fechaCreacion}">
-                            <f:convertDateTime pattern="dd/MM/yyyy" locale="ES" />			
+                            <f:convertDateTime pattern="dd/MM/yyyy" locale="ES" />
+                        </h:outputText>
                     </p:column>
                     
                     <p:column headerText="MODIFICAR" style="text-align: center">
@@ -63,9 +61,7 @@
         <h:form id="formAgregar">
                     <p:dialog id="dlgAgregar" header="Agregar Empleado" widgetVar="dialogoAgregar" resizable="false" showEffect="fade" hideEffect="explode" modal="true">
                         <p:panelGrid columns="2" style="margin: 0 auto;">
-                            <p:outputLabel value="Codigo:"/>
-                            <p:inputText value="#{proveedoresController.proveedor.proveedorID}"/>
-
+  
                             <p:outputLabel value="Nombre comercial:"/>
                             <p:inputText value="#{proveedoresController.proveedor.nombreComercial}"/>
 
@@ -82,15 +78,15 @@
                             <p:calendar value="#{proveedoresController.proveedor.fechaCreacion}"  locale="es"  disabled="true"/>
 
                         </p:panelGrid>
-                        <p:commandButton  value="Guardar" actionListener="#{proveedoresController.agregarProveedor()}" update=":formProveedores:tablaProveedores" oncomplete="PF('dialogoAgregar').hide();"/>
+                        
+                        <p:commandButton  value="Guardar" actionListener="#{proveedoresController.agregarProveedor()}"
+                                          update=":formProveedores:tablaProveedores" oncomplete="PF('dialogoAgregar').hide();"/>
                         <p:commandButton  value="Cancelar" onclick="PF('dialogoAgregar').hide();"/>
                     </p:dialog>
                 </h:form>
         <h:form id="formModificar">
-                    <p:dialog id="dlgModificar" header="Modificar Proveedor" widgetVar="dialogoModificar" resizable="false" showEffect="fade" hideEffect="explode" modal="true">
-			<p:outputLabel value="Codigo:"/>
-                            <p:inputText value="#{proveedoresController.proveedor.proveedorID}"/>
-
+                    <p:dialog id="dlgModificar" header="Modificar Proveedor" widgetVar="dialogoModificar" resizable="false"
+                              showEffect="fade" hideEffect="explode" modal="true">
                             <p:outputLabel value="Nombre comercial:"/>
                             <p:inputText value="#{proveedoresController.proveedor.nombreComercial}"/>
 
@@ -105,11 +101,8 @@
                             
                             <p:outputLabel value="Fecha de creacion:"/>
                             <p:calendar value="#{proveedoresController.proveedor.fechaCreacion}"  locale="es"  disabled="true"/>
-
-                        </p:panelGrid>
                         <p:commandButton  value="Guardar" actionListener="#{proveedoresController.agregarProveedor()}" update=":formProveedores:tablaProveedores" oncomplete="PF('dialogoModificar').hide();"/>
                         <p:commandButton  value="Cancelar" onclick="PF('dialogoModificar').hide();"/>
-                        </p:panelGrid>
                     </p:dialog>
                 </h:form>   
         <h:form id="formEliminar">

@@ -29,6 +29,7 @@ body {
 }
 .pen-title span {
   font-size: 12px;
+  color: white;
 }
 .pen-title span .fa {
   color: #ed2553;
