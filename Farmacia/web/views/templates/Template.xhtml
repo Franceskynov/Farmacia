@@ -61,7 +61,7 @@
                                     <li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
                                     <h:form>
                                         <p:menubar>
-                                            <p:menuitem value="Salir" icon="ui-icon-circle-minus" action="#{loginController.cerrarSession()}"  />
+                                            <p:menuitem value="Salir" icon="ui-icon-circle-minus" action="#{loginController.cerrarSession()}"  class="logout" />
                                         </p:menubar>
                                     </h:form>
                                 </ul>
@@ -71,18 +71,18 @@
                 </div>
             </nav>
             <div id="sidebar-nav" class="sidebar">
-                    <nav>
-                        <ul class="nav">
-                            <li><a href="/Farmacia/faces/views/admin/dashboard.xhtml" class="#{ active }"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>	
-                            <li><a href="/Farmacia/faces/views/admin/clientes.xhtml" class="#{ active }"><i class="lnr lnr-smile"></i> <span>Clientes</span></a></li>
-                            <li><a href="/Farmacia/faces/views/admin/proveedores.xhtml" class="#{ proveedoresController.active }"><i class="lnr lnr-apartment"></i> 
-                            <span>Proveedores</span></a></li>
-                            <li><a href="/Farmacia/faces/views/admin/productos.xhtml" class="#{ active }"><i class="lnr lnr-funnel"></i> <span>Productos</span></a></li>
-                            <li><a href="/Farmacia/faces/views/admin/empleados.xhtml" class="#{ active }"><i class="lnr lnr-users"></i> <span>Empleados</span></a></li>
-                            <li><a href="/Farmacia/faces/views/admin/ventas.xhtml" class="#{ ventasController.active }" ><i class="lnr lnr-cart"></i><span>Ventas</span></a></li>
-                        </ul>
-                    </nav>
-                
+                <nav>
+                    <ul class="nav">
+                        <li><a href="/Farmacia/faces/views/admin/dashboard.xhtml" class="#{ active }"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>	
+                        <li><a href="/Farmacia/faces/views/admin/clientes.xhtml" class="#{ active }"><i class="lnr lnr-smile"></i> <span>Clientes</span></a></li>
+                        <li><a href="/Farmacia/faces/views/admin/proveedores.xhtml" class="#{ proveedoresController.active }"><i class="lnr lnr-apartment"></i> 
+                                <span>Proveedores</span></a></li>
+                        <li><a href="/Farmacia/faces/views/admin/productos.xhtml" class="#{ active }"><i class="lnr lnr-funnel"></i> <span>Productos</span></a></li>
+                        <li><a href="/Farmacia/faces/views/admin/empleados.xhtml" class="#{ active }"><i class="lnr lnr-users"></i> <span>Empleados</span></a></li>
+                        <li><a href="/Farmacia/faces/views/admin/ventas.xhtml" class="#{ ventasController.active }" ><i class="lnr lnr-cart"></i><span>Ventas</span></a></li>
+                    </ul>
+                </nav>
+
             </div>
             <div class="main">
                 <div class="main-content">
@@ -97,5 +97,14 @@
     <h:outputScript name="/assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"/>
     <h:outputScript name="/assets/vendor/chartist/js/chartist.min.js"/>
     <h:outputScript name="/assets/scripts/klorofil-common.js"/>
+    <script>
+        $(document).ready(function () {
+            $('.logout').on('click', function () {
+                setTimeout(function () {
+                    $(window).attr('location', '/Farmacia/');
+                }, 1500);
+            });
+        });
+    </script>
 </html>
 
