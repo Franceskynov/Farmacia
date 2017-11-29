@@ -29,7 +29,7 @@
                     </div>
                     <div id="navbar-menu">
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="dropdown">
+                            <!--<li class="dropdown">
                                 <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
                                     <i class="lnr lnr-alarm"></i>
                                     <span class="badge bg-danger">5</span>
@@ -51,13 +51,16 @@
                                     <li><a href="#">Security</a></li>
                                     <li><a href="#">Troubleshooting</a></li>
                                 </ul>
-                            </li>
+                            </li>-->
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="/assets/img/user.png" class="img-circle" alt="Avatar"/> <span>Samuel</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <img src="/assets/img/user.png" class="img-circle" alt=""/> 
+                                    <span>Opciones</span> <i class="icon-submenu lnr lnr-chevron-down"></i>
+                                </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
+<!--                               <li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
                                     <li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
-                                    <li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
+                                    <li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>-->
                                     <li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
                                     <h:form>
                                         <p:menubar>
@@ -73,13 +76,14 @@
             <div id="sidebar-nav" class="sidebar">
                 <nav>
                     <ul class="nav">
-                        <li><a href="/Farmacia/faces/views/admin/dashboard.xhtml" class="#{ active }"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>	
-                        <li><a href="/Farmacia/faces/views/admin/clientes.xhtml" class="#{ active }"><i class="lnr lnr-smile"></i> <span>Clientes</span></a></li>
-                        <li><a href="/Farmacia/faces/views/admin/proveedores.xhtml" class="#{ proveedoresController.active }"><i class="lnr lnr-apartment"></i> 
-                                <span>Proveedores</span></a></li>
-                        <li><a href="/Farmacia/faces/views/admin/productos.xhtml" class="#{ active }"><i class="lnr lnr-funnel"></i> <span>Productos</span></a></li>
-                        <li><a href="/Farmacia/faces/views/admin/empleados.xhtml" class="#{ active }"><i class="lnr lnr-users"></i> <span>Empleados</span></a></li>
-                        <li><a href="/Farmacia/faces/views/admin/ventas.xhtml" class="#{ ventasController.active }" ><i class="lnr lnr-cart"></i><span>Ventas</span></a></li>
+
+                       
+                        <li><a href="/Farmacia/faces/views/admin/dashboard.xhtml" id="aDashboard" class=""><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>	
+                        <li><a href="/Farmacia/faces/views/admin/clientes.xhtml" id="aClientes"  class=""><i class="lnr lnr-smile"></i> <span>Clientes</span></a></li>
+                        <li><a href="/Farmacia/faces/views/admin/proveedores.xhtml" id="aProveedores" class=""><i class="lnr lnr-apartment"></i> <span>Proveedores</span></a></li>
+                        <li><a href="/Farmacia/faces/views/admin/productos.xhtml" id="aProductos" class=""><i class="lnr lnr-funnel"></i> <span>Productos</span></a></li>
+                        <li><a href="/Farmacia/faces/views/admin/empleados.xhtml" id="aEmpleados" class=""><i class="lnr lnr-users"></i> <span>Empleados</span></a></li>
+                        <li><a href="/Farmacia/faces/views/admin/ventas.xhtml" id="aVentas" class="" ><i class="lnr lnr-cart"></i><span>Ventas</span></a></li>
                     </ul>
                 </nav>
 
@@ -97,13 +101,33 @@
     <h:outputScript name="/assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"/>
     <h:outputScript name="/assets/vendor/chartist/js/chartist.min.js"/>
     <h:outputScript name="/assets/scripts/klorofil-common.js"/>
-    <script>
-        $(document).ready(function () {
-            $('.logout').on('click', function () {
-                setTimeout(function () {
-                    $(window).attr('location', '/Farmacia/');
-                }, 1500);
-            });
+
+    
+    <script language="es" charset="utf-8" type="text/javascript">
+        $(document).ready(function(){
+            $(function(){
+                switch(window.location.pathname){
+                    case('/Farmacia/faces/views/admin/dashboard.xhtml'):
+                        $('#aDashboard').addClass('active');
+                        break;
+                    case('/Farmacia/faces/views/admin/clientes.xhtml'):
+                        $('#aClientes').addClass('active');
+                        break;
+                    case('/Farmacia/faces/views/admin/proveedores.xhtml'):
+                        $('#aProveedores').addClass('active');
+                        break;
+                    case('/Farmacia/faces/views/admin/empleados.xhtml'):
+                        $('#aEmpleados').addClass('active');
+                        break;
+                    case('/Farmacia/faces/views/admin/productos.xhtml'):
+                        $('#aProductos').addClass('active');
+                        break;
+                    case('/Farmacia/faces/views/admin/ventas.xhtml'):
+                        $('#aVentas').addClass('active');
+                        break;
+                }
+            })
+
         });
     </script>
 </html>

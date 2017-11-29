@@ -15,11 +15,10 @@
                     <div class="panel-heading">
                             <h3 class="panel-title">Ventas</h3>
                     </div>
-                    <!--
         <h:form>
-            <p:commandButton value="Agregar Venta" actionListener="#{ventasController.limpiarVenta()}" oncomplete="PF('dialogoAgregar').show();" update=":formAgregar"/>
+            <p:commandButton value="Agregar Venta" actionListener="#{ventasController.iniciarVenta()}" oncomplete="PF('dialogoAgregar').show();" update=":formAgregar"/>
             <p:separator/>
-        </h:form> -->
+        </h:form>
             <h:form id="formVentas">
                 <p:dataTable id="tablaVentas" paginator="true" paginatorPosition="bottom" rows="10" var="ventas" 
                              value="#{ventasController.listaVentas}" emptyMessage="No existen ventas en el periodo actual">
@@ -53,8 +52,63 @@
                 </p:dataTable>
             </h:form>
             </div>
+            
+            <h:form id="formAgregar">
+                    <p:dialog id="dlgAgregar" header="Agregar Venta" widgetVar="dialogoAgregar" resizable="false" showEffect="fade"
+                              hideEffect="explode" modal="true">
+                        <p:panelGrid columns="2" style="margin: 0 auto;">
+                            <p:outputLabel value="CODIGO:"/>
+                            <p:inputText value="#{ventasController.venta.codigo}"/>
+                            <p:outputLabel value="ESTA VENTA:"/>
+                            <p:inputText disabled="true" value="#{ventasController.venta.totalVenta}"/>
+                            <p:outputLabel value="PRODUCTOS:"/>
+                            <p:dataTable id="tablaDetalleVentas" paginator="true" paginatorPosition="bottom" rows="5" var="productos" 
+                                         value="#{productosController.listaProductos}" emptyMessage="No existen ventas en el periodo actual">
+                                <p:column headerText="PRODUCTO">
+                                    <h:outputText value="#{productos.nombre}"/>
+                                </p:column>
+                                <p:column headerText="PRECIO">
+                                    <h:outputText value="$ #{productos.precio}"/>
+                                </p:column>
+                                <p:column headerText="SELECCIONAR">
+                                    <p:commandButton icon="ui-icon-trash" title="SELECCIONAR" oncomplete="PF('dialogoSeleccionar').show();" update=":formSeleccionar">
+                                        <f:setPropertyActionListener target="#{ventasController.detalleVentas}" value="#{detalleVentas}" />
+                                    </p:commandButton>
+                                </p:column>
+                            </p:dataTable>
+                            <p:outputLabel value="FECHA VENTA:"/>
+                            <p:calendar value="#{ventasController.venta.fechaVenta}" locale="es" disabled="true"/>
+                        </p:panelGrid>
+                        <p:commandButton  value="Guardar" actionListener="#{ventasController.agregarVenta()}" 
+                                          update=":formVentas:tablaVentas" oncomplete="PF('dialogoAgregar').hide();"/>
+                        <p:commandButton  value="Cancelar" onclick="PF('dialogoAgregar').hide();"/>
+                    </p:dialog>
+                </h:form>
+            <h:form id="formSeleccionar">
+                    <p:dialog id="dlgSeleccionar" header="Agregar Detalle Venta" widgetVar="dialogoSeleccionar" resizable="false" showEffect="fade"
+                              hideEffect="explode" modal="true">
+                        <p:panelGrid columns="2" style="margin: 0 auto;">
+                            <p:outputLabel id="tProducto" value="PRODUCTO:"/>
+                            <p:inputText value="#{ventasController.detalleVentas.productos.nombre}"/>
+                            <p:outputLabel value="PRECIO"/>
+                            <p:inputText value="#{ventasController.detalleVentas.productos.precio}"/>
+                            <p:outputLabel value="CANTIDAD:"/>
+                            <p:inputText value="#{ventasController.detalleVentas.cantidad}"/>
+                        </p:panelGrid>
+                        <p:commandButton  value="Guardar" actionListener="#{ventasController.agregarDetalles()}" 
+                                          update=":formVentas:tablaVentas" oncomplete="PF('dialogoAgregar').hide();"/>
+                        <p:commandButton  value="Cancelar" onclick="PF('dialogoAgregar').hide();"/>
+                    </p:dialog>
+                </h:form>
         </ui:define>
     </ui:composition>
-
+    <script charset="utf-8" type="text/javascript">
+        $(document).ready(function(){
+            $.get('/Farmacia/ProductosController/obtenerProducto?pProductoId=1", 
+            function(response){
+                console.log(response); 
+            });
+        });
+    </script>
 </body>
 </html>

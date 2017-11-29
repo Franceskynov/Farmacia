@@ -89,10 +89,6 @@ public class Ventas  implements java.io.Serializable {
     public void setDetalleventases(Set<Detalleventas> detalleventases) {
         this.detalleventases = detalleventases;
     }
-
-
-
-
 }
 
 

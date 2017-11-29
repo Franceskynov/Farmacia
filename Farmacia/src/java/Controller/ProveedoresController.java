@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controller;
 
 import Model.Dao.ProveedoresDao;
@@ -12,9 +7,6 @@ import java.util.Date;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-//import javax.inject.Named;
-//import javax.faces.view.ViewScoped;
-
 
 @ManagedBean
 @ViewScoped
@@ -31,6 +23,14 @@ public class ProveedoresController implements Serializable{
         active = "active";
         return active;
     }
+
+    public Proveedores getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(Proveedores proveedor) {
+        this.proveedor = proveedor;
+    }
     
     public void setListaProveedores(List<Proveedores> listaProveedores){
         this.listaProveedores = listaProveedores;
@@ -38,12 +38,8 @@ public class ProveedoresController implements Serializable{
     
     public List<Proveedores> getListaProveedores(){
         ProveedoresDao Dao = new ProveedoresDao();
+        this.listaProveedores = Dao.ListaProveedores();
         return this.listaProveedores;
-    }
-    
-    public Proveedores getProveedor()
-    {
-        return proveedor;
     }
     
     public void limpiarProveedor(){

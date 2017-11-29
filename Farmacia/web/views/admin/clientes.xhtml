@@ -8,10 +8,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <h:body>
-
         <ui:composition template="./../templates/Template.xhtml">
-
-            
             <ui:define name="content">
                 <div class="panel panel-headline">
 	<div class="panel-heading">
@@ -28,20 +25,25 @@
                              value="#{clientesController.listaClientes}" emptyMessage="No existen clientes">
 
                     <p:column headerText="NOMBRE COMPLETO">
-                        <h:outputText value="#{clientes.nombre} #{clientes.apellido}"/>
+                        <h:outputText value="#{clientes.nombre}  #{clientes.apellido}"/>
                     </p:column>
+                    
                     <p:column headerText="GENERO">
                         <h:outputText value="#{clientes.genero}"/>
                     </p:column>
+                    
                     <p:column headerText="TELEFONO">
                         <h:outputText value="#{clientes.telefono}"/>
                     </p:column>
+                    
                     <p:column headerText="CIUDAD">
                         <h:outputText value="#{clientes.ciudad}"/>
                     </p:column>
+                    
                     <p:column headerText="EMAIL">
                         <h:outputText value="#{clientes.correoElectronico}"/>
                     </p:column>
+                    
                     <p:column headerText="FECHA INGRESO">
                         <h:outputText value="#{clientes.fechaIngreso}">
                             <f:convertDateTime pattern="dd/MM/yyyy" locale="ES" />
@@ -75,7 +77,10 @@
                             <p:inputText value="#{clientesController.cliente.apellido}"/>
 
                             <p:outputLabel value="Genero:"/>
-                            <p:inputText value="#{clientesController.cliente.genero}"/>
+                            <h:selectOneRadio value="#{clientesController.cliente.genero}">
+                                <f:selectItem itemValue="M" itemLabel="Masculino" />
+                                <f:selectItem itemValue="F" itemLabel="Femenino" />
+                            </h:selectOneRadio>
 
                             <p:outputLabel value="Telefono:"/>
                             <p:inputText value="#{clientesController.cliente.telefono}"/>
@@ -110,9 +115,13 @@
 
                             <p:outputLabel value="Apellido:"/>
                             <p:inputText value="#{clientesController.cliente.apellido}"/>
-
+                            
                             <p:outputLabel value="Genero:"/>
-                            <p:inputText value="#{clientesController.cliente.genero}"/>
+                            <h:selectOneRadio value="#{clientesController.cliente.genero}" validatorMessage="Gender is required">
+                                <f:selectItem itemValue="M" itemLabel="Masculino" />
+                                <f:selectItem itemValue="F" itemLabel="Femenino" />
+                                <f:validateRequired/>
+                            </h:selectOneRadio>
 
                             <p:outputLabel value="Telefono:"/>
                             <p:inputText value="#{clientesController.cliente.telefono}"/>
@@ -132,6 +141,7 @@
                         </p:panelGrid>
                         <p:commandButton  value="Guardar" actionListener="#{clientesController.modificarCliente()}" 
                                           update=":formClientes:tablaClientes" oncomplete="PF('dialogoModificar').hide();"/>
+                        
                         <p:commandButton  value="Cancelar" onclick="PF('dialogoModificar').hide();"/>
                     </p:dialog>
                 </h:form>
@@ -139,13 +149,16 @@
         <h:form id="formEliminar">
                     <p:dialog id="dlgEliminar" header="Eliminar Cliente" widgetVar="dialogoEliminar" resizable="false"
                               showEffect="fade" hideEffect="explode" modal="true">
+                        
                         <h:outputText value="Desea eliminar este registro?"/>
+                        
                         <p:commandButton  value="Si" actionListener="#{clientesController.eliminarCliente()}" 
                                           update=":formClientes:tablaClientes" oncomplete="PF('dialogoEliminar').hide();"/>
                         <p:commandButton  value="No" onclick="PF('dialogoEliminar').hide();"/>
                     </p:dialog>
         </h:form>
                 </div>
+                
             </ui:define>
 
         </ui:composition>

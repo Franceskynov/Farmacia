@@ -17,23 +17,8 @@ import javax.servlet.http.HttpSession;
 @SessionScoped
 public class LoginController implements Serializable {
 
-    /**
-     * @return the active
-     */
-    public String getActive() {
-        active = "active";
-        return active;
-    }
-
-    /**
-     * @param active the active to set
-     */
-    public void setActive(String active) {
-        this.active = active;
-    }
-   
     private Empleados usuario;
-    private String active;
+
     //creando un nuevo objeto de LoginController, y  a su vez un objeto para manejar el usuario
     public LoginController() {
         this.usuario = new Empleados();

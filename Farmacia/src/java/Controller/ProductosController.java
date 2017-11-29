@@ -28,7 +28,7 @@ public class ProductosController  implements Serializable{
         ProductosDao pd = new ProductosDao();
         this.listaProductos = pd.ListaProductos();
         
-        return listaProductos;
+        return this.listaProductos;
     }
 
     public void setListarProductos(List<Productos> listaProductos) {
@@ -62,10 +62,13 @@ public class ProductosController  implements Serializable{
     }
     
     public void eliminarProducto(){
-    
         ProductosDao pd = new ProductosDao();
         pd.eliminar(producto);
         limpiarProducto();
     }
     
+    public Productos obtenerProducto(int pProductoId){
+        ProductosDao pd = new ProductosDao();
+        return pd.ObtenerProductos(pProductoId);
+    }
 }

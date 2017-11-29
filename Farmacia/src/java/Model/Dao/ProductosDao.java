@@ -12,6 +12,22 @@ import org.hibernate.Transaction;
  */
 public class ProductosDao {
     
+    public Productos ObtenerProductos(int ProductoId){
+        Productos oProducto = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tran = session.beginTransaction();
+        String hql = "FROM Productos WHERE productoId = "+ProductoId;
+        try{
+            oProducto = (Productos) session.createQuery(hql).list().get(0);
+            tran.commit();
+            session.close();
+        }catch(Exception ex){
+            tran.rollback();
+        }
+        
+        return oProducto;
+    }
+    
     public List<Productos> ListaProductos(){
         List<Productos> lista = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
