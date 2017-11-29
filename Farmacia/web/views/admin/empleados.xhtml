@@ -81,7 +81,16 @@
                             <p:inputText value="#{empleadosController.empleado.apellido}"/>
 
                             <p:outputLabel value="Genero:"/>
-                            <p:inputText value="#{empleadosController.empleado.genero}"/>
+                            <h:selectOneRadio value="#{empleadosController.empleado.genero}">
+                                <f:selectItem itemValue="M" itemLabel="Masculino" />
+                                <f:selectItem itemValue="F" itemLabel="Femenino" />
+                            </h:selectOneRadio>
+                            
+                            <p:outputLabel value="Usuario"/>
+                            <p:inputText value="#{empleadosController.empleado.usuario}"/>
+                            
+                            <p:outputLabel value="Clave"/>
+                            <p:inputText value="#{empleadosController.empleado.clave}"/>
 
                             <p:outputLabel value="Ciudad:"/>
                             <p:inputText value="#{empleadosController.empleado.ciudad}"/>
@@ -113,9 +122,18 @@
 
                             <p:outputLabel value="Apellido:"/>
                             <p:inputText value="#{empleadosController.empleado.apellido}"/>
-
+                            
                             <p:outputLabel value="Genero:"/>
-                            <p:inputText value="#{empleadosController.empleado.genero}"/>
+                            <h:selectOneRadio value="#{empleadosController.empleado.genero}">
+                                <f:selectItem itemValue="M" itemLabel="Masculino" />
+                                <f:selectItem itemValue="F" itemLabel="Femenino" />
+                            </h:selectOneRadio>
+                            
+                            <p:outputLabel value="Usuario"/>
+                            <p:inputText value="#{empleadosController.empleado.usuario}"/>
+                            
+                            <p:outputLabel value="Clave"/>
+                            <p:inputText value="#{empleadosController.empleado.clave}"/>
 
                             <p:outputLabel value="Ciudad:"/>
                             <p:inputText value="#{empleadosController.empleado.ciudad}"/>

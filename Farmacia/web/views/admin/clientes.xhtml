@@ -77,10 +77,9 @@
                             <p:inputText value="#{clientesController.cliente.apellido}"/>
 
                             <p:outputLabel value="Genero:"/>
-                            <h:selectOneRadio value="#{clientesController.cliente.genero}" validatorMessage="Gender is required">
+                            <h:selectOneRadio value="#{clientesController.cliente.genero}">
                                 <f:selectItem itemValue="M" itemLabel="Masculino" />
                                 <f:selectItem itemValue="F" itemLabel="Femenino" />
-                                <f:validateRequired/>
                             </h:selectOneRadio>
 
                             <p:outputLabel value="Telefono:"/>
