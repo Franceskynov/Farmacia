@@ -283,13 +283,13 @@ body {
   overflow: hidden;
   -webkit-transition: .3s ease;
   transition: .3s ease;
-  background-color: #FFECED;
-  border: 2px solid #00C853;
+  background-color: #CFF5B6;
+  border: 2px solid #2AB682;
 }
 .card .button-container button span {
   position: relative;
   z-index: 1;
-  color: #00C853;
+  color: #28A885;
   -webkit-transition: .3s ease;
   transition: .3s ease;
 }
@@ -299,7 +299,7 @@ body {
   top: 50%;
   left: 50%;
   display: block;
-  background: #ed2553;
+  background: #28A885;
   width: 30px;
   height: 30px;
   border-radius: 100%;
@@ -309,10 +309,11 @@ body {
   transition: .3s ease;
 }
 .card .button-container button:hover, .card .button-container button:active, .card .button-container button:focus {
-  border-color: #ed2553;
+  border-color: #28A885;
 }
 .card .button-container button:hover span, .card .button-container button:active span, .card .button-container button:focus span {
-  color: #ed2553;
+  color: #0A7261;
+  border-color:#0A7261; 
 }
 .card .button-container button:active span, .card .button-container button:focus span {
   color: #ffffff;
@@ -450,4 +451,14 @@ body {
     bottom: 30px;
     opacity: 0;
   }
+}
+
+
+.ui-inputfield,
+.ui-inputfield:focus{
+    border: 0px;
+    -moz-box-shadow:0px 0px 0px #cdd5da, inset 0 0px 0px #8f8f8f;
+    -webkit-box-shadow:0px 0px 0px #cdd5da, inset 0 0px 0px #8f8f8f;
+    box-shadow:0px 0px 0px #cdd5da, inset 0 0px 0px #8f8f8f;
+
 }
